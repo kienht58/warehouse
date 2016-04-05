@@ -4,16 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DM_KHO extends Model
+class DM_NHA_CUNG_CAP extends Model
 {
-    protected $table = 'DM_KHO';
+    protected $table = "DM_NHA_CUNG_CAP";
 
     protected $fillable = [
-    	'MA_KHO',
-    	'TEN_KHO',
-    	'VI_TRI',
-    	'LIEN_HE',
-    	'GHI_CHU'
+    	'MA_NHA_CUNG_CAP',
+    	'TEN_NHA_CUNG_CAP'
     ];
 
     public $timestamps = false;

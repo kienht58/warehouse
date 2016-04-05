@@ -4,15 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DM_KHO extends Model
+class DM_TU_DIEN extends Model
 {
-    protected $table = 'DM_KHO';
+    protected $table = "DM_TU_DIEN";
 
     protected $fillable = [
-    	'MA_KHO',
-    	'TEN_KHO',
-    	'VI_TRI',
-    	'LIEN_HE',
+    	'ID_LOAI_TU_DIEN',
+    	'MA_TU_DIEN',
+    	'TEN_TU_DIEN',
     	'GHI_CHU'
     ];
 
