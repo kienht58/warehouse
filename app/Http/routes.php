@@ -15,13 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/warehouselists', [ 
-	'uses' => 'DM_KHOController@index']);
-Route::get('/warehouselists/{id}', [
-	'uses' => 'DM_KHOController@show']);
-Route::post('/warehouselists', [
-	'uses' => 'DM_KHOController@store']);
-Route::post('/warehouselists/{id}', [
-	'uses' => 'DM_KHOController@update']);
-Route::delete('/warehouselists/{id}', [
-	'uses' => 'DM_KHOController@delete']);
+Route::get('/warehouselists', 'warehouseListController@index');
+Route::get('/warehouselists/{id}', 'warehouseListController@show');
+Route::post('/warehouselists', 'warehouseListController@create');
+Route::post('/warehouselists/{id}', 'warehouseListController@update');
+Route::delete('/warehouselists/{id}', 'warehouseListController@delete');
+
+
+Route::get('/dictionary_types', 'dictionaryTypeController@index');
+Route::get('/dictionary_types/{id}', 'dictionaryTypeController@show');
+Route::post('/dictionary_types', 'dictionaryTypeController@create');
+Route::post('/dictionary_types/{id}', 'dictionaryTypeController@update');
+Route::delete('/dictionary_types/{id}', 'dictionaryTypeController@delete');
+
+Route::get('/suppliers', 'supplierListController@index');
+Route::get('/suppliers/{id}', 'supplierListController@show');
+Route::post('/suppliers', 'supplierListController@create');
+Route::post('/suppliers/{id}', 'supplierListController@update');
+Route::delete('/suppliers/{id}', 'supplierListController@delete');
+
+Route::get('/products', 'productEntityListController@index');
+Route::get('/products/{id}', 'productEntityListController@show');
+Route::post('/products', 'productEntityListController@create');
+Route::post('/products/{id}', 'productEntityListController@update');
+Route::delete('/products/{id}', 'productEntityListController@delete');
