@@ -21,13 +21,6 @@ Route::post('/warehouselists', 'warehouseListController@create');
 Route::post('/warehouselists/{id}', 'warehouseListController@update');
 Route::delete('/warehouselists/{id}', 'warehouseListController@delete');
 
-
-Route::get('/dictionary_types', 'dictionaryTypeController@index');
-Route::get('/dictionary_types/{id}', 'dictionaryTypeController@show');
-Route::post('/dictionary_types', 'dictionaryTypeController@create');
-Route::post('/dictionary_types/{id}', 'dictionaryTypeController@update');
-Route::delete('/dictionary_types/{id}', 'dictionaryTypeController@delete');
-
 Route::get('/suppliers', 'supplierListController@index');
 Route::get('/suppliers/{id}', 'supplierListController@show');
 Route::post('/suppliers', 'supplierListController@create');

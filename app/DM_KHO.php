@@ -29,21 +29,11 @@ class DM_KHO extends Model
 	}
 
 	public static function createItem($request) {
-		$data = new DM_KHO;
-		$data->MA_KHO = $request->MA_KHO;
-		$data->TEN_KHO = $request->TEN_KHO;
-		$data->VI_TRI = $data->VI_TRI;
-		$data->LIEN_HE = $data->LIEN_HE;
-		$data->GHI_CHU = $data->GHI_CHU;
-		$data->save();
+		DM_KHO::create($request->all());
 	}
 
 	public static function updateItem($request, $id) {
-		DM_KHO::where('ID', $id)
-				->update(['TEN_KHO' => $request->TEN_KHO,
-						  'VI_TRI' => $request->VI_TRI,
-						  'LIEN_HE' => $request->LIEN_HE,
-						  'GHI_CHU' => $request->GHI_CHU]);
+		DM_KHO::where('ID', $id)->update($request->all());
 	}
 
 	public static function deleteItem($id) {

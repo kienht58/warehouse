@@ -18,38 +18,25 @@ class DM_SAN_PHAM_TRONG_KHO extends Model
     public $timestamps = false;
 
     public static function getAll() {
-		$results = DM_SAN_PHAM_TRONG_KHO::all();
+		$results = DM_SAN_PHAM_ENTITY::all();
 		return $results;
 	}  
 
 	public static function getById($id) {
-		return DM_SAN_PHAM_TRONG_KHO::where('ID', $id)
+		return DM_SAN_PHAM_ENTITY::where('ID', $id)
 						->get();
 	}
 
 	public static function createItem($request) {
-		$data = new DM_SAN_PHAM_TRONG_KHO;
-		
-		$data->ID_SAN_PHAM = $request->ID_SAN_PHAM;
-		$data->MA_SAN_PHAM = $request->MA_SAN_PHAM;
-		$data->TEN_SAN_PHAM = $request->TEN_SAN_PHAM;
-		$data->MA_SAN_PHAM_NHA_CUNG_CAP = $request->MA_SAN_PHAM_NHA_CUNG_CAP;
-		$data->ID_DON_VI_TINH = $request->ID_DON_VI_TINH;
-
-		$data->save();
+		DM_SAN_PHAM_ENTITY::create($request->all());
 	}
 
 	public static function updateItem($request, $id) {
-		DM_SAN_PHAM_TRONG_KHO::where('ID', $id)
-				->update(['ID_SAN_PHAM' => $request->ID_SAN_PHAM,
-						  'MA_SAN_PHAM' => $request->MA_SAN_PHAM,
-						  'TEN_SAN_PHAM' => $request->SERIAL_NHA_CUNG_CAP,
-						  'MA_SAN_PHAM_NHA_CUNG_CAP' => $request->MA_SAN_PHAM_NHA_CUNG_CAP,
-						  'ID_DON_VI_TINH' => $request->ID_DON_VI_TINH]);
+		DM_SAN_PHAM_ENTITY::where('ID', $id)->update($request->all());
 	}
-	
+
 	public static function deleteItem($id) {
-		DM_SAN_PHAM_TRONG_KHO::where('ID', $id)
+		DM_SAN_PHAM_ENTITY::where('ID', $id)
 				->delete();
 	}
 }
