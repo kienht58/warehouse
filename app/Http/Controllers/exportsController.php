@@ -6,34 +6,34 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\DM_TU_DIEN;
+use App\GD_XUAT_KHO;
 
 use Response;
 
-class dictionaryController extends Controller
+class importsController extends Controller
 {
     //index
     public function index() {
-        return Response::json(DM_TU_DIEN::getAll());
+        return Response::json(GD_XUAT_KHO::getAll());
     }  
 
     public function show($id) {
-        return Response::json(DM_TU_DIEN::getById($id));
+        return Response::json(GD_XUAT_KHO::getById($id));
     }
 
     public function create(Request $request) {
-        DM_TU_DIEN::createItem($request);
+        GD_XUAT_KHO::createItem($request);
 
         return "create successfully";
     }
 
     public function update(Request $request, $id) {
-        DM_TU_DIEN::updateItem($request, $id);
+        GD_XUAT_KHO::updateItem($request, $id);
         return "update successfully";
     }
 
     public function delete($id) {
-        DM_TU_DIEN::deleteItem($id);
+        GD_XUAT_KHO::deleteItem($id);
         return "delete successfully";
     }
 }

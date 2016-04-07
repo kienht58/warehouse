@@ -15,20 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/warehouselists', 'warehouseListController@index');
-Route::get('/warehouselists/{id}', 'warehouseListController@show');
-Route::post('/warehouselists', 'warehouseListController@create');
-Route::post('/warehouselists/{id}', 'warehouseListController@update');
-Route::delete('/warehouselists/{id}', 'warehouseListController@delete');
+Route::get('/warehouses', 'warehousesController@index');
+Route::get('/warehouses/{warehouseID}', 'warehousesController@show');
+Route::post('/warehouses', 'warehousesController@create');
+Route::post('/warehouses/{warehouseID}', 'warehousesController@update');
+Route::delete('/warehouses/{warehouseID}', 'warehousesController@delete');
 
-Route::get('/suppliers', 'supplierListController@index');
-Route::get('/suppliers/{id}', 'supplierListController@show');
-Route::post('/suppliers', 'supplierListController@create');
-Route::post('/suppliers/{id}', 'supplierListController@update');
-Route::delete('/suppliers/{id}', 'supplierListController@delete');
+Route::get('/warehouses/{warehouseID}/categories', 'categoriesController@index');
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@show');
+Route::post('/warehouses/{warehouseID}/categories', 'categoriesController@create');
+Route::post('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@update');
+Route::delete('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@delete');
 
-Route::get('/products', 'productEntityListController@index');
-Route::get('/products/{id}', 'productEntityListController@show');
-Route::post('/products', 'productEntityListController@create');
-Route::post('/products/{id}', 'productEntityListController@update');
-Route::delete('/products/{id}', 'productEntityListController@delete');
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}/products', 'productsController@index');
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', 'productsController@show');
+Route::post('/warehouses/{warehouseID}/categories/{categoryID}/products', 'productsController@create');
+Route::post('warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', 'productsController@update');
+Route::delete('/warehouses/{warehouseID}/categories/{categoryID}/products', 'productsController@delete');
+
+Route::get('/suppliers', 'warehousesController@index');
+Route::get('/suppliers/{supplierID}', 'warehousesController@show');
+Route::post('/suppliers', 'warehousesController@create');
+Route::post('/suppliers/{supplierID}', 'warehousesController@update');
+Route::delete('/suppliers/{supplierID}', 'warehousesController@delete');
+
+Route::get('/imports', 'warehousesController@index');
+Route::get('/imports/{supplierID}', 'warehousesController@show');
+Route::post('/imports', 'warehousesController@create');
+Route::post('/imports/{supplierID}', 'warehousesController@update');
+Route::delete('/imports/{supplierID}', 'warehousesController@delete');
+

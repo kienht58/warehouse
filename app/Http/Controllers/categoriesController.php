@@ -10,7 +10,7 @@ use App\DM_SAN_PHAM_ENTITY;
 
 use Response;
 
-class productEntityListController extends Controller
+class categoriesController extends Controller
 {
     //index
     public function index() {

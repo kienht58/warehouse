@@ -6,34 +6,34 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\GD_NHAP_KHO;
+use App\DM_NHA_CUNG_CAP;
 
 use Response;
 
-class importTransactionController extends Controller
+class suppliersController extends Controller
 {
     //index
     public function index() {
-        return Response::json(GD_NHAP_KHO::getAll());
+        return Response::json(DM_NHA_CUNG_CAP::getAll());
     }  
 
     public function show($id) {
-        return Response::json(GD_NHAP_KHO::getById($id));
+        return Response::json(DM_NHA_CUNG_CAP::getById($id));
     }
 
     public function create(Request $request) {
-        GD_NHAP_KHO::createItem($request);
+        DM_NHA_CUNG_CAP::createItem($request);
 
         return "create successfully";
     }
 
     public function update(Request $request, $id) {
-        GD_NHAP_KHO::updateItem($request, $id);
+        DM_NHA_CUNG_CAP::updateItem($request, $id);
         return "update successfully";
     }
 
     public function delete($id) {
-        GD_NHAP_KHO::deleteItem($id);
+        DM_NHA_CUNG_CAP::deleteItem($id);
         return "delete successfully";
     }
 }

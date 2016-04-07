@@ -10,7 +10,7 @@ use App\DM_KHO;
 
 use Response;
 
-class warehouseListController extends Controller
+class warehousesController extends Controller
 {
 	//index
 	public function index() {

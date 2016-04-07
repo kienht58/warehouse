@@ -20,4 +20,27 @@ class GD_YEU_CAU_DETAIL extends Model
     ];
 
     public $timestamps = false;
+
+    public static function getAll() {
+        $results = GD_YEU_CAU_DETAIL::all();
+        return $results;
+    }  
+
+    public static function getById($id) {
+        return GD_YEU_CAU_DETAIL::where('ID', $id)
+                        ->get();
+    }
+
+    public static function createItem($request) {
+        GD_YEU_CAU_DETAIL::create($request->all());
+    }
+
+    public static function updateItem($request, $id) {
+        GD_YEU_CAU_DETAIL::where('ID', $id)->update($request->all());
+    }
+
+    public static function deleteItem($id) {
+        GD_YEU_CAU_DETAIL::where('ID', $id)
+                ->delete();
+    }
 }
