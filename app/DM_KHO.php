@@ -37,6 +37,6 @@ class DM_KHO extends Model
 	}
 
 	public static function deleteItem($id) {
-		$result = DM_KHO::where('ID', $id);
+		$result = DM_KHO::where('ID', $id)->delete();
 	}
 }

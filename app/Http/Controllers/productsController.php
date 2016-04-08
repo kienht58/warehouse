@@ -17,23 +17,21 @@ class productsController extends Controller
         return Response::json(DM_SAN_PHAM_ENTITY::getAll());
     }  
 
-    public function show($id) {
-        return Response::json(DM_SAN_PHAM_ENTITY::getById($id));
+    public function show($warehouseID, $categoryID, $productID) {
+        return Response::json(DM_SAN_PHAM_ENTITY::getById($productID));
     }
 
     public function create(Request $request) {
-        DM_SAN_PHAM_ENTITY::createItem($request);
-
-        return "create successfully";
+        return DM_SAN_PHAM_ENTITY::createItem($request);
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $warehouseID, $categoryID, $productID) {
         DM_SAN_PHAM_ENTITY::updateItem($request, $id);
         return "update successfully";
     }
 
-    public function delete($id) {
-        DM_SAN_PHAM_ENTITY::deleteItem($id);
+    public function delete($warehouseID, $categoryID, $productID) {
+        DM_SAN_PHAM_ENTITY::deleteItem($productID);
         return "delete successfully";
     }
 }
