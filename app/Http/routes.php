@@ -125,6 +125,79 @@ Route::delete('/warehouses/{warehouseID}/categories/{categoryID}/products/{produ
 	'uses' => 'productsController@destroy'
 ]);
 
+
+// ImportController
+
+Route::get('warehouses/{warehouseID}/imports',[
+	'as'   => 'imports.index',
+	'uses' => 'importRequestsController@index'
+	]);
+
+Route::get('warehouses/{warehouseID}/imports/create',[
+	'as'   => 'imports.create',
+	'uses' => 'importRequestsController@create'
+	]);
+
+Route::get('warehouses/{warehouseID}/imports/{importID}',[
+	'as'   => 'imports.show',
+	'uses' => 'importRequestsController@show'
+	]);
+
+Route::post('warehouses/{warehouseID}/imports',[
+	'as' => 'imports.store',
+	'uses' => 'importRequestsController@store'
+	]);
+
+Route::get('warehouses/{warehouseID}/imports/{importID}/edit',[
+	'as' => 'imports.edit',
+	'uses' => 'importRequestsController@edit'
+	]);
+
+Route::put('warehouses/{warehouseID}/imports/{importID}',[
+	'as' => 'imports.update',
+	'uses' => 'importRequestsController@update'
+	]);
+
+Route::delete('warehouses/{warehouseID}/imports/{importID}', [
+	'as' => 'imports.destroy',
+	'uses' => 'importRequestsController@destroy'
+]);
+
+// ExportController
+Route::get('warehouses/{warehouseID}/exports',[
+	'as'   => 'exports.index',
+	'uses' => 'exportRequestsController@index'
+	]);
+
+Route::get('warehouses/{warehouseID}/exports/create',[
+	'as'   => 'exports.create',
+	'uses' => 'exportRequestsController@create'
+	]);
+
+Route::get('warehouses/{warehouseID}/exports/{importID}',[
+	'as'   => 'exports.show',
+	'uses' => 'exportRequestsController@show'
+	]);
+
+Route::post('warehouses/{warehouseID}/exports',[
+	'as' => 'exports.store',
+	'uses' => 'exportsController@store'
+	]);
+
+Route::get('warehouses/{warehouseID}/exports/{importID}/edit',[
+	'as' => 'exports.edit',
+	'uses' => 'importRequestsController@edit'
+	]);
+
+Route::put('warehouses/{warehouseID}/exports/{importID}',[
+	'as' => 'exports.update',
+	'uses' => 'importRequestsController@update'
+	]);
+
+Route::delete('warehouses/{warehouseID}/exports/{importID}', [
+	'as' => 'exports.destroy',
+	'uses' => 'exportRequestsController@destroy'
+]);
 /*
 Route::get('/warehouses/{warehouseID}/categories', 'categoriesController@index');
 Route::get('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@show');

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class importsController extends Controller
+class exportsController extends Controller
 {
-    
+    //
 }
