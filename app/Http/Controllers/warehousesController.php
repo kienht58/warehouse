@@ -12,30 +12,37 @@ use Response;
 
 class warehousesController extends Controller
 {
-    //index
     public function index() {
         $warehouses = DM_KHO::getAll();
         return view('warehouses/index', compact('warehouses'));
-        //return Response::json(DM_KHO::getAll());
     }  
 
     public function show($id) {
-        return Response::json(DM_KHO::getById($id));
+        $warehouse =DM_KHO::getById($id);
+        return view('warehouses/show', compact('warehouse'));
     }
 
-    public function create(Request $request) {
-        DM_KHO::createItem($request);
+    public function create() {
+        return view('warehouses/new');
+    }
 
-        return "create successfully";
+    public function store(Request $request) {
+        DM_KHO::createItem($request);
+        return redirect()->route('warehouses.index');
+    }
+
+    public function edit($id) {
+        $warehouse = DM_KHO::getById($id);
+        return view('warehouses/edit', compact('warehouse'));
     }
 
     public function update(Request $request, $id) {
         DM_KHO::updateItem($request, $id);
-        return "update successfully";
+        return redirect()->route('warehouses.show', $id);
     }
 
     public function destroy($id) {
         DM_KHO::deleteItem($id);
-        return redirect()->route('warehouse.index');
+        return redirect()->route('warehouses.index');
     }
 }

@@ -8,32 +8,42 @@ use App\Http\Requests;
 
 use App\DM_SAN_PHAM_TRONG_KHO;
 
-use Response;
+use App\DM_KHO;
 
 class categoriesController extends Controller
 {
-    //index
-    public function index() {
-        return Response::json(DM_SAN_PHAM_TRONG_KHO::getAll());
+    public function index($warehouseID) {
+    	$warehouse = DM_KHO::getById($warehouseID);
+        $categories = DM_SAN_PHAM_TRONG_KHO::getAll();
+        return view('categories/index', compact('categories', 'warehouse'));
     }  
 
     public function show($warehouseID, $categoryID) {
-        return Response::json(DM_SAN_PHAM_TRONG_KHO::getById($categoryID));
+        $category =DM_SAN_PHAM_TRONG_KHO::getById($categoryID);
+        return view('categories/show', compact('category'));
     }
 
-    public function create(Request $request) {
-        DM_SAN_PHAM_TRONG_KHO::createItem($request);
+    public function create($warehouseID) {
+        return view('categories/new', compact('warehouseID'));
+    }
 
-        return "create successfully";
+    public function store(Request $request, $warehouseID) {
+        DM_SAN_PHAM_TRONG_KHO::createItem($request);
+        return redirect()->route('categories.index', compact('warehouseID'));
+    }
+
+    public function edit($warehouseID, $categoryID) {
+        $category = DM_SAN_PHAM_TRONG_KHO::getById($categoryID);
+        return view('categories/edit', compact('category', 'categoryID', 'warehouseID'));
     }
 
     public function update(Request $request, $warehouseID, $categoryID) {
         DM_SAN_PHAM_TRONG_KHO::updateItem($request, $categoryID);
-        return "update successfully";
+        return redirect()->route('categories.show', compact('warehouseID', 'categoryID'));
     }
 
-    public function delete($warehoueID, $categoryID) {
+    public function destroy($warehouseID, $categoryID) {
         DM_SAN_PHAM_TRONG_KHO::deleteItem($categoryID);
-        return "delete successfully";
+        return redirect()->route('categories.index', compact('warehouseID'));
     }
 }

@@ -20,8 +20,7 @@ class DM_NHA_CUNG_CAP extends Model
 	}  
 
 	public static function getById($id) {
-		return DM_NHA_CUNG_CAP::where('ID', $id)
-						->get();
+		return DM_NHA_CUNG_CAP::where('ID', $id)->first();
 	}
 
 	public static function createItem($request) {

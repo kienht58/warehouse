@@ -16,44 +16,102 @@ Route::get('/', function () {
 });
 
 
-
+//warehouses
 Route::get('/warehouses', [
-	'as' => 'warehouse.index',
-	'uses' => 'warehousesController@index']);
+	'as' => 'warehouses.index',
+	'uses' => 'warehousesController@index'
+	]);
+
+Route::get('/warehouses/create', [
+	'as' => 'warehouses.create',
+	'uses' => 'warehousesController@create'
+	]);
 
 Route::get('/warehouses/{warehouseID}', [
-	'as' => 'warehouse.show',
+	'as' => 'warehouses.show',
 	'uses' => 'warehousesController@show'
-]);
+	]);
 
 Route::post('/warehouses', [
-	'as' => 'warehouse.create',
-	'uses' => 'warehousesController@create'
-]);
+	'as' => 'warehouses.store',
+	'uses' => 'warehousesController@store'
+	]);
 
-Route::post('/warehouses/{warehouseID}', [
-	'as' => 'warehouse.edit',
+Route::get('/warehouses/{warehouseID}/edit', [
+	'as' => 'warehouses.edit',
+	'uses' => 'warehousesController@edit'
+	]);
+
+Route::put('/warehouses/{warehouseID}', [
+	'as' => 'warehouses.update',
 	'uses' => 'warehousesController@update'
-]);
+	]);
 
 Route::delete('/warehouses/{warehouseID}', [
-	'as' => 'warehouse.destroy',
+	'as' => 'warehouses.destroy',
 	'uses' => 'warehousesController@destroy'
 ]);
 
+//categories
+Route::get('warehouses/{warehouseID}/categories', [
+	'as' => 'categories.index',
+	'uses' => 'categoriesController@index'
+	]);
 
+Route::get('/warehouses/{warehouseID}/categories/create', [
+	'as' => 'categories.create',
+	'uses' => 'categoriesController@create'
+	]);
 
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}', [
+	'as' => 'categories.show',
+	'uses' => 'categoriesController@show'
+	]);
+
+Route::post('/warehouses/{warehouseID}/categories', [
+	'as' => 'categories.store',
+	'uses' => 'categoriesController@store'
+	]);
+
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}/edit', [
+	'as' => 'categories.edit',
+	'uses' => 'categoriesController@edit'
+	]);
+
+Route::put('/warehouses/{warehouseID}/categories/{categoryID}', [
+	'as' => 'categories.update',
+	'uses' => 'categoriesController@update'
+	]);
+
+Route::delete('/warehouses/{warehouseID}/categories/{categoryID}', [
+	'as' => 'categories.destroy',
+	'uses' => 'categoriesController@destroy'
+]);
+
+/*
 Route::get('/warehouses/{warehouseID}/categories', 'categoriesController@index');
 Route::get('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@show');
 Route::post('/warehouses/{warehouseID}/categories', 'categoriesController@create');
 Route::post('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@update');
 Route::delete('/warehouses/{warehouseID}/categories/{categoryID}', 'categoriesController@delete');
 
-Route::get('/warehouses/{warehouseID}/categories/{categoryID}/products', 'productsController@index');
-Route::get('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', 'productsController@show');
-Route::post('/warehouses/{warehouseID}/categories/{categoryID}/products', 'productsController@create');
-Route::post('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', 'productsController@update');
-Route::delete('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', 'productsController@delete');
+//Product
+
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}/products', [
+	'as' => 'product.index',
+	'uses' => 'productsController@index']);
+Route::get('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', [
+	'as' => 'product.show',
+	'uses' => 'productsController@show']);
+Route::post('/warehouses/{warehouseID}/categories/{categoryID}/products', [
+	'as' => 'product.create',
+	'uses' => 'productsController@create']);
+Route::post('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', [
+	'as' => 'product.edit',
+	'uses' => 'productsController@update']);
+Route::delete('/warehouses/{warehouseID}/categories/{categoryID}/products/{productID}', [
+	'as' => 'product.destroy',
+	'uses' => 'productsController@destroy']);
 
 Route::get('/suppliers', 'suppliersController@index');
 Route::get('/suppliers/{supplierID}', 'suppliersController@show');
@@ -77,4 +135,4 @@ Route::get('/requests', 'requestsController@index');
 Route::get('/requests/{id}', 'requestsController@show');
 Route::post('/requests', 'requestsController@create');
 Route::post('/requests/{id}', 'requestsController@update');
-Route::delete('/requests/{id}', 'requestsController@delete');
+Route::delete('/requests/{id}', 'requestsController@delete');*/

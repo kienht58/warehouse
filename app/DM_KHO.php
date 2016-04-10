@@ -24,8 +24,7 @@ class DM_KHO extends Model
 	}  
 
 	public static function getById($id) {
-		return DM_KHO::where('ID', $id)
-						->get();
+		return DM_KHO::where('ID', $id)->first();
 	}
 
 	public static function createItem($request) {
@@ -33,10 +32,10 @@ class DM_KHO extends Model
 	}
 
 	public static function updateItem($request, $id) {
-		DM_KHO::where('ID', $id)->update($request->all());
+		DM_KHO::where('ID', $id)->update($request->except('_method', '_token'));
 	}
 
 	public static function deleteItem($id) {
-		$result = DM_KHO::where('ID', $id)->delete();
+		DM_KHO::where('ID', $id)->delete();
 	}
 }

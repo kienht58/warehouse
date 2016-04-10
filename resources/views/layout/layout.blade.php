@@ -1,12 +1,11 @@
-<html>
-    <head>
-        <title>yield('title')</title>
-        <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    </head>
-    <body>
-
-        <div class="container">
-            @yield('content')
-        </div>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		@yield('title')
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+	</head>
+	<body>
+		@yield('content')
+	</body>
 </html>
